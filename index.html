@@ -1,0 +1,177 @@
+<!--
+    MASTERMIND v. 1.0
+    Data: 23/11/2021
+    Autori: Christian Alessandri, Fabio Cheli
+    Gruppo: 01
+    Classe: 4IA
+    Scuola: I.T.T.S. Fedi-Fermi
+-->
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastermind NXT | Home</title>
+
+    <!--FONT-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&display=swap" rel="stylesheet">
+
+    <!--ICONE-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="styles/style.css">
+
+    <!--FAVICON-->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+    <link rel="manifest" href="assets/icons/site.webmanifest">
+</head>
+
+<body>
+    <!--BACKGROUND-->
+    <video autoplay muted loop class="bg">
+        <source src="assets/videos/bg.mp4" type="video/mp4">
+    </video>
+    
+
+    <!--MENU-->
+    <div class="topnav" id="menu">
+        <a href="index.html" class="active">Home</a>
+        <a href="index.html#gioco">Gioco</a>
+        <a href="index.html#regole">Regole</a>
+        <a class="icon" onclick="responsiveNav()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+    <br><br>
+
+    <!--DESCRIZIONE & TUTORIAL-->
+    <h1 style="text-align: center; color: #fff;">MASTERMIND NXT</h1>
+
+    <div class="main">
+        <div class="card">
+            <div class="card-img">
+                <img src="assets/images/tutorial.svg" width="75%" style="margin-top: 2rem">
+            </div>
+            <div class="card-text">
+                <p class="name"><b>TUTORIAL</b></p>
+                <p>Impare a giocare a Mastermind grazie alla guida di OctoMind.</p>
+            </div>
+            <button onclick="vaiAlGioco(5)">PLAY</button>
+        </div>
+    </div>
+
+    <br>
+
+    <!--MODALITÀ-->
+    <h2 id="gioco" style="text-align: center; color: #fff;">Modalità</h2>
+
+    <div class="main">
+        <div class="card">
+            <div class="card-img">
+                <img src="assets/images/classic_game.svg" width="75%" style="margin-top: 2rem">
+            </div>
+            <div class="card-text">
+                <p class="name"><b>MASTERMIND NXT CLASSIC</b></p>
+                <p>Mastermind classico, 8 tentativi per riuscire a indovinare.<br>Gioca con i colori!</p>
+            </div>
+            <button onclick="vaiAlGioco(0)">PLAY</button>
+        </div>
+
+        <div class="card">
+            <div class="card-img">
+                <img src="assets/images/hard_game.svg" width="75%" style="margin-top: 2rem">
+            </div>
+            <div class="card-text">
+                <p class="name"><b>MASTERMIND NXT HARD</b></p>
+                <p>Gioca a Mastermind versione Hard.<br>I suggerimenti bianchi sono disabilitati.<br> Riuscirai a vincere?</p>
+            </div>
+            <button  onclick="vaiAlGioco(1)">PLAY</button>
+        </div>
+
+        <div class="card">
+            <div class="card-img">
+                <img src="assets/images/time_game.svg" width="60%" style="margin-top: 2rem">
+            </div>
+            <div class="card-text">
+                <p class="name"><b>MASTERMIND NXT AGAINST TIME</b></p>
+                <p>Prova a sconfiggere il tempo nella versione AGAINST TIME di Mastermind.</p>
+            </div>
+            <button  onclick="vaiAlGioco(2)">PLAY</button>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="card">
+            <div class="card-img">
+                <img src="assets/images/extreme_game.svg" width="75%" style="margin-top: 2rem">
+            </div>
+            <div class="card-text">
+                <p class="name"><b>MASTERMIND NXT EXTREME</b></p>
+                <p>Più colori e meno tentativi nella modalità più estrema di tutte.<br>Solo per un vero Mister Mind.</p>
+            </div>
+            <button onclick="vaiAlGioco(3)">PLAY</button>
+        </div>
+
+        <div class="card">
+            <div class="card-img">
+                <img src="assets/images/four_chance_game.svg" width="75%" style="margin-top: 2rem">
+            </div>
+            <div class="card-text">
+                <p class="name"><b>MASTERMIND NXT 4 CHANCE</b></p>
+                <p>Quattro unici tentavi per provare a portarti a casa la vittoria.<br>Ce la farai?</p>
+            </div>
+            <button  onclick="vaiAlGioco(4)">PLAY</button>
+        </div>
+    </div>
+
+    <br><br><br>
+
+    <!--REGOLE-->
+    <h2 id="regole" style="text-align: center; color: #fff;">Regole</h2>
+
+    <div class="main">
+        <div class="card-big">
+            <div class="card-big-img">
+                <img src="assets/images/rule.svg" width="75%" style="margin-top: 2rem">
+            </div>
+            <div class="card-big-text">
+                <p class="name"><b>REGOLE</b></p>
+                <p>
+                    Dopo che la CPU avrà composto il codice composto da 4 colori scelti tra 6 potrete iniziare a indovinare la soluzione.
+                    La CPU una volta completato il tentativo fornisce degli aiuti comunicando:
+                    <ul>
+                        <li>
+                            Il numero di cifre giuste al posto sbagliato; cioè le cifre
+                            del tentativo che sono effettivamente presenti nel codice,
+                            ma non al posto tentato; con un suggerimento bianco;
+                        </li>
+                        <li>
+                            Il numero di cifre giuste al posto giusto; cioè le cifre del
+                            tentativo che sono effettivamente presenti nel codice al
+                            posto tentato; con un suggerimento nero.
+                        </li>
+                        
+                    </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!--FOOTER-->
+    <div class="footer">
+        <p>2021 - Mastermind NXT<br>Christian Alessandri</p>
+    </div>
+    
+    <!--JS-->
+    <script src="app.js"></script>
+</body>
+</html>

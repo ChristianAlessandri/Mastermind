@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastermind NXT Hard</title>
+
+    <!--FONT-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&display=swap" rel="stylesheet">
+
+    <!--ICONE-->
+    <script src="https://kit.fontawesome.com/9ea412f49a.js" crossorigin="anonymous"></script>
+
+    <!--CSS-->
+    <link rel="stylesheet" href="styles/style_game.css">
+
+    <!--FAVICON-->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+    <link rel="manifest" href="assets/icons/site.webmanifest">
+</head>
+
+<body onload="init(1)">
+    <div class="filtro-bg-1"></div>
+
+    <!--GESTIONE AUDIO-->
+    <div class="audio">
+        <audio controls id="musica" loop hidden>
+            <source src="assets/music/soundtrack.mp3" type="audio/mpeg">
+        </audio>
+        <button onclick="controlloMusica()">
+            <i id="fa-volume-up" class="fas fa-volume-up"></i>
+            <i id="fa-volume-mute" class="fas fa-volume-mute"></i>
+        </button>
+    </div>
+
+    <div class="main">
+
+        <!--TABELLONE DI GIOCO-->
+        <div class="mastermind">
+            <div class="riga">
+                <div class="n-livello">?&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                <div class="verifica" style="visibility: hidden;">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+    
+                <div style="float: left;">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    
+                <div class="scelta">
+                    <div id="incognita-1"></div>
+                    <div id="incognita-2"></div>
+                    <div id="incognita-3"></div>
+                    <div id="incognita-4"></div>
+                </div>
+            </div>
+
+            <br><br><hr><br><br>
+
+            <div class="riga">
+                <div class="n-livello">8&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                <div class="verifica">
+                    <div id="verifica-1-1"></div>
+                    <div id="verifica-1-2"></div>
+                    <div id="verifica-1-3"></div>
+                    <div id="verifica-1-4"></div>
+                </div>
+    
+                <div style="float: left;">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    
+                <div class="scelta">
+                    <div id="scelta-1-1"></div>
+                    <div id="scelta-1-2"></div>
+                    <div id="scelta-1-3"></div>
+                    <div id="scelta-1-4"></div>
+                </div>
+            </div>
+    
+            <br><br><br>
+    
+            <div class="riga">
+                <div class="n-livello">7&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                <div class="verifica">
+                    <div id="verifica-2-1"></div>
+                    <div id="verifica-2-2"></div>
+                    <div id="verifica-2-3"></div>
+                    <div id="verifica-2-4"></div>
+                </div>
+    
+                <div style="float: left;">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    
+                <div class="scelta">
+                    <div id="scelta-2-1"></div>
+                    <div id="scelta-2-2"></div>
+                    <div id="scelta-2-3"></div>
+                    <div id="scelta-2-4"></div>
+                </div>
+            </div>
+            
+            <br><br><br>
+            
+            <div class="riga">
+                <div class="n-livello">6&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                <div class="verifica">
+                    <div id="verifica-3-1"></div>
+                    <div id="verifica-3-2"></div>
+                    <div id="verifica-3-3"></div>
+                    <div id="verifica-3-4"></div>
+                </div>
+    
+                <div style="float: left;">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    
+                <div class="scelta">
+                    <div id="scelta-3-1"></div>
+                    <div id="scelta-3-2"></div>
+                    <div id="scelta-3-3"></div>
+                    <div id="scelta-3-4"></div>
+                </div>
+            </div>
+    
+            <br><br><br>
+            
+            <div class="riga">
+                <div class="n-livello">5&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                <div class="verifica">
+                    <div id="verifica-4-1"></div>
+                    <div id="verifica-4-2"></div>
+                    <div id="verifica-4-3"></div>
+                    <div id="verifica-4-4"></div>
+                </div>
+    
+                <div style="float: left;">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    
+                <div class="scelta">
+                    <div id="scelta-4-1"></div>
+                    <div id="scelta-4-2"></div>
+                    <div id="scelta-4-3"></div>
+                    <div id="scelta-4-4"></div>
+                </div>
+            </div>
+    
+            <br><br><br>
+            
+            <div class="riga">
+                <div class="n-livello">4&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                <div class="verifica">
+                    <div id="verifica-5-1"></div>
+                    <div id="verifica-5-2"></div>
+                    <div id="verifica-5-3"></div>
+                    <div id="verifica-5-4"></div>
+                </div>
+    
+                <div style="float: left;">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    
+                <div class="scelta">
+                    <div id="scelta-5-1"></div>
+                    <div id="scelta-5-2"></div>
+                    <div id="scelta-5-3"></div>
+                    <div id="scelta-5-4"></div>
+                </div>
+            </div>
+    
+            <br><br><br>
+            
+            <div class="riga">
+                <div class="n-livello">3&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                <div class="verifica">
+                    <div id="verifica-6-1"></div>
+                    <div id="verifica-6-2"></div>
+                    <div id="verifica-6-3"></div>
+                    <div id="verifica-6-4"></div>
+                </div>
+    
+                <div style="float: left;">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    
+                <div class="scelta">
+                    <div id="scelta-6-1"></div>
+                    <div id="scelta-6-2"></div>
+                    <div id="scelta-6-3"></div>
+                    <div id="scelta-6-4"></div>
+                </div>
+            </div>
+    
+            <br><br><br>
+            
+            <div class="riga">
+                <div class="n-livello">2&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                <div class="verifica">
+                    <div id="verifica-7-1"></div>
+                    <div id="verifica-7-2"></div>
+                    <div id="verifica-7-3"></div>
+                    <div id="verifica-7-4"></div>
+                </div>
+    
+                <div style="float: left;">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    
+                <div class="scelta">
+                    <div id="scelta-7-1"></div>
+                    <div id="scelta-7-2"></div>
+                    <div id="scelta-7-3"></div>
+                    <div id="scelta-7-4"></div>
+                </div>
+            </div>
+    
+            <br><br><br>
+            
+            <div class="riga">
+                <div class="n-livello">1&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                <div class="verifica">
+                    <div id="verifica-8-1"></div>
+                    <div id="verifica-8-2"></div>
+                    <div id="verifica-8-3"></div>
+                    <div id="verifica-8-4"></div>
+                </div>
+    
+                <div style="float: left;">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    
+                <div class="scelta">
+                    <div id="scelta-8-1"></div>
+                    <div id="scelta-8-2"></div>
+                    <div id="scelta-8-3"></div>
+                    <div id="scelta-8-4"></div>
+                </div>
+            </div>
+        </div>
+
+        <!--SELEZIONE COLORI & ALTRO-->
+        <div class="gioco">
+            <h1>MASTERMIND</h1>
+            <h2>NXT HARD</h2>
+            <br>
+            <p id="best-score"><strong>Best Score: ?</strong></p>
+            <br>
+            <p>Selezione Colore</p>
+            <button class="button-1" id="button-color" onclick="aggiungi(1)"></button>
+            <button class="button-2" id="button-color" onclick="aggiungi(2)"></button>
+            <button class="button-3" id="button-color" onclick="aggiungi(3)"></button>
+            <button class="button-4" id="button-color" onclick="aggiungi(4)"></button>
+            <button class="button-5" id="button-color" onclick="aggiungi(5)"></button>
+            <button class="button-6" id="button-color" onclick="aggiungi(6)"></button>
+            <hr>
+            <br>
+            <button class="button-action" onclick="init(1)">Reset</button>
+            <button class="button-action" onclick="vaiAllaHome()">Esci</button>
+        </div>
+    </div>
+    <div class="gioco-responsive">
+        <button class="button-1" id="button-color" onclick="aggiungi(1)"></button>
+        <button class="button-2" id="button-color" onclick="aggiungi(2)"></button>
+        <button class="button-3" id="button-color" onclick="aggiungi(3)"></button>
+        <button class="button-4" id="button-color" onclick="aggiungi(4)"></button>
+        <button class="button-5" id="button-color" onclick="aggiungi(5)"></button>
+        <button class="button-6" id="button-color" onclick="aggiungi(6)"></button>
+        <hr>
+        <button class="button-action" onclick="init(1)">Reset</button>
+        <button class="button-action" onclick="vaiAllaHome()">Esci</button>
+    </div>
+
+    <div id="win" class="win">🏆Hai Vinto🏆</div>
+    <div id="gameOver" class="gameOver">🙁Hai Perso🙁</div>
+    <div id="score" class="score"></div>
+    
+    <!--JS-->
+    <script src="app.js"></script>
+</body>
+</html>

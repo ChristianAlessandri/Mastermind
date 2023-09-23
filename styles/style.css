@@ -1,0 +1,236 @@
+/*ANIMAZIONI*/
+@keyframes cambioColoreSfondo{
+    0%{
+        background: red;
+    }
+    25%{
+        background: orange;
+    }
+    50%{
+        background: green;
+    }
+    75%{
+        background: blue;
+    }
+    100%{
+        background: purple;
+    }
+}
+
+
+/*BODY*/
+body{
+    user-select: none;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Exo 2', sans-serif;
+}
+
+.bg{
+    z-index: -1;
+
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+
+/*MENU*/
+.topnav{
+    z-index: 1;
+
+    position: fixed;
+    width: 100%;
+
+    background-color: rgba(0,0,0,.7);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    overflow: hidden;
+
+}
+
+.topnav a{
+    display: block;
+    float: left;
+    padding: 1rem 1rem;
+
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+    color: #fff;
+}
+
+.topnav a:hover{
+    background-color: rgba(255,255,255,.7);
+    
+    color: #000;
+}
+
+.topnav .icon{
+    display: none;
+}
+
+
+/*CONTENUTI*/
+.main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+
+    text-align: center;
+}
+
+.card{
+    width: 280px;
+    height: 400px;
+    margin: 1rem;
+
+    border-radius: 25px;
+
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: rgba(0,0,0,.25) 0px 50px 100px -20px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    font-family: 'Open Sans', sans-serif;
+    color: #111;
+
+    transition: linear .3s;
+}
+
+.card-big{
+    width: 580px;
+    height: 400px;
+    margin: 1rem;
+
+    border-radius: 25px;
+
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: rgba(0,0,0,.25) 0px 50px 100px -20px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    font-family: 'Open Sans', sans-serif;
+    color: #111;
+}
+
+.card-img{
+    position: relative;
+    width: 280px;
+    left: 0;
+    margin-top: -16px;
+}
+
+.card-big-img{
+    position: relative;
+    width: 280px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin-top: -16px;
+}
+
+.card-text{
+    position: relative;
+    padding: 0 16px;
+
+    font-size: .9rem;
+}
+
+.card-big-text{
+    position: relative;
+    padding: 0 16px;
+
+    text-align: left;
+    font-size: .9rem;
+}
+
+.card-text .name, .card-big-text .name{
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+button{
+    width: 4rem;
+    height: 2rem;
+
+    border: 2px solid rgba(0,0,0,.7);
+    border-radius: 10px;
+
+    background-color: rgba(0,0,0,.5);
+    
+    text-align: center;
+    font-family: 'Exo 2', sans-serif;
+    color: #fff;
+
+    transition: linear .1s;
+}
+
+button:hover{
+    border: 2px solid rgba(255,255,255,.7);
+
+    background-color: rgba(255,255,255,.5);
+
+    color: #000;
+}
+
+
+/*FOOTER*/
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 10vh;
+
+    background-color: rgba(0,0,0,.7);
+
+    text-align: center;
+    color: #ccc;
+}
+
+
+/*RESPONSIVE*/
+@media screen and (min-width: 601px){
+    .bg{
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media screen and (max-width: 600px){
+    .topnav a:not(:first-child){
+        display: none;
+    }
+
+    .topnav a.icon{
+        display: block;
+        float: right;
+    }
+
+    .topnav.responsive{
+        position: relative;
+    }
+
+    .topnav.responsive .icon{
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .topnav.responsive a{
+        display: block;
+        float: none;
+
+        text-align: left;
+    }
+
+    .card-big{
+        height: 580px;
+    }
+}
